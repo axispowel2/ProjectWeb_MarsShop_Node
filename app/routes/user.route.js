@@ -27,6 +27,16 @@ module.exports = (app) => {
         failureRedirect: '/login',
         successRedirect: '/home'
     }));
+    https://api.twitter.com/1.1/account/verify_credentials.json
 
+    app.get('/oauth/twitter', passport.authenticate('twitter', {
+        scope: ['https://api.twitter.com/1.1/account/verify_credentials.json'],
+        failureRedirect: '/login'
+    }));
+
+    app.get('/oauth/twitter/callback', passport.authenticate('twitter', {
+        failureRedirect: '/login',
+        successRedirect: '/home'
+    }));
 }
 
