@@ -12,8 +12,8 @@ module.exports = {
       callbackURL: 'http://localhost:3000/oauth/google/callback'
 },
 twitter: {
-  clientID: 'xMmRqQb9CC5yfCsEf6IM643lr',
-  clientSecret: 'CgFLR4A0UDFZFTCJeglMvanaHvePXBqiVX6kh7cklNsemeWnov',
+  consumerKey: 'xMmRqQb9CC5yfCsEf6IM643lr',
+  consumerSecret: 'CgFLR4A0UDFZFTCJeglMvanaHvePXBqiVX6kh7cklNsemeWnov',
   callbackURL: 'http://marsshop.herokuapp.com/oauth/twitter/callback'
 }
 }
