@@ -7,8 +7,8 @@ module.exports = {
     sessionSecret: 'dev_secret_key',
     
     google: {
-      clientID: '41917947091-4o86i624dap6keumdfq1o222c4331f7e.apps.googleusercontent.com',
-      clientSecret: 'aLLvyJZrG8ua1UEnX81-qKBu',
+      clientID: '98896871793-bdekdb22i6gpsnai9moccugnpv88i21v.apps.googleusercontent.com',
+      clientSecret: 'V9TKaf-6J9ieiwHsRsxLB24R',
       callbackURL: 'http://localhost:3000/oauth/google/callback'
 }
 
