@@ -1,5 +1,5 @@
-import passport from 'passport';
-var FacebookStrategy = require('passport-facebook-oauth').OAuth2Strategy;
+/*import passport from 'passport';
+var FacebookStrategy = require('passport-facebook').OAuth2Strategy;
 import config from '../config.js';
 import user from '../../app/controllers/user.controller';
 
@@ -24,4 +24,4 @@ module.exports = () => {
         }
         user.saveOAuthUserProfile(req, providerUserProfile, done);
     }));
-}
+}*/

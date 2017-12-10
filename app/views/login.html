@@ -54,6 +54,10 @@
         padding-top: 16px;
     }
 
+    .linkOauth a {
+        color: #4CAF50;
+    }
+
     @media screen and (max-width: 300px) {
         span.psw {
             display: block;
@@ -78,9 +82,11 @@
             <button type="submit">Login</button>
         </div>
     </form>
-    <a href="/oauth/google">Log in with Google</a>
-    <a href="/oauth/facebook">Log in with Google</a>
-    <a href="/oauth/twitter">Log in with twitter</a>
+    <div class="linkOauth">
+        <a href="/oauth/google">Log in with Google</a>
+        <a href="/oauth/facebook">Log in with facebook</a>
+        <a href="/oauth/twitter">Log in with twitter</a>
+    </div>
 </body>
 
 </html>
