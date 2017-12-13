@@ -26,7 +26,7 @@ module.exports = (app) => {
 
     app.get('/oauth/google/callback', passport.authenticate('google', {
         failureRedirect: '/login',
-        successRedirect: '/home'
+        successRedirect: '/'
     }));
 
     //faceook-----------------------------------------------------
@@ -38,7 +38,7 @@ module.exports = (app) => {
 
     app.get('/oauth/facebook/callback', passport.authenticate('facebook', {
         failureRedirect: '/login',
-        successRedirect: '/home'
+        successRedirect: '/'
     }));
 
     //Twitter------------------------------------------------
@@ -50,7 +50,7 @@ module.exports = (app) => {
 
     app.get('/oauth/twitter/callback', passport.authenticate('twitter', {
         failureRedirect: '/login',
-        successRedirect: '/home'
+        successRedirect: '/'
     }));
 }
 
