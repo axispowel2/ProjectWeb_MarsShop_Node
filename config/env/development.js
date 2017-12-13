@@ -9,7 +9,7 @@ module.exports = {
   google: {
     clientID: '98896871793-bdekdb22i6gpsnai9moccugnpv88i21v.apps.googleusercontent.com',
     clientSecret: 'V9TKaf-6J9ieiwHsRsxLB24R',
-    callbackURL: 'http://localhost:3000/oauth/google/callback'
+    callbackURL: 'http://marsshop.herokuapp.com/oauth/google/callback'
   },
   facebook: {
     clientID: '308687199634879',
