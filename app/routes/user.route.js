@@ -7,7 +7,7 @@ module.exports = (app) => {
     app.get(path + '/getuser', user.getUsers);
     app.post(path + '/signup', user.create);
 
-    app.post(path + '/deleteuser', user.deleteUser);
+    app.post(path + '/deleteUser/:username', user.deleteUser);
 
     app.route('/login')
         .get(user.login)
