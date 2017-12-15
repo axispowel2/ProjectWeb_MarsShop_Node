@@ -15,85 +15,60 @@ exports.getUsers = (req, res, next) => {
     });
 }
 //-----------------------------------------------------------
-/*exports.userByUsername = (req, res, next, username) => {
-    User.findOne(
-        { username: username },
-        (err, user) => {
-            if (err) {
-                console.log('Failure');
-                return next(err);
-            }
-            else {
-                console.log('Success');
-                req.user = user;
-                next();
-            }
-        });
-}
-exports.getSelectUser = (req, res) => {
-    res.json(req.user);
-}
-*/
 exports.deleteUser = (req, res, next) => {
-    User.findOneAndRemove({ username: req.user.username }, req.body,
-        (err, user) => {
-            if (err) {
-                return next(err);
-            } else {
-                res.json(user);
-            }
-        });
-    //------------------------------------------------
-    exports.create = (req, res, next) => {
-        var user = new User(req.body);
-        user.save((err) => {
-            if (err) {
-                console.log('Failure');
-                return next(err);
-            }
-            else {
-                console.log('Success');
-                res.json(user);
-            }
-        });
-    }
 
-    exports.login = (req, res) => {
-        if (!req.user) {
-            res.sendFile((path.join(__dirname + '/../views/login.html')));
+}
+//------------------------------------------------
+exports.create = (req, res, next) => {
+    var user = new User(req.body);
+    user.save((err) => {
+        if (err) {
+            console.log('Failure');
+            return next(err);
         }
         else {
-            return res.redirect('/home');
+            console.log('Success');
+            res.json(user);
         }
+    });
+}
+
+exports.login = (req, res) => {
+    if (!req.user) {
+        res.sendFile((path.join(__dirname + '/../views/login.html')));
     }
-
-    exports.logout = (req, res) => {
-        req.logout();
-        res.redirect('/');
+    else {
+        return res.redirect('/home');
     }
+}
+
+exports.logout = (req, res) => {
+    req.logout();
+    res.redirect('/');
+}
 
 
-    exports.saveOAuthUserProfile = (req, profile, done) => {
-        User.findOne({
-            provider: profile.provider,
-            providerId: profile.providerId
-        }, function (err, user) {
-            if (err) return done(err);
-            else {
-                if (!user) {
-                    var possibleUsername = profile.username
-                        || (profile.email ? profile.email.split('@')[0] : '');
-                    console.log('NAME: ' + profile.username);
-                    User.findUniqueUsername(possibleUsername, null, (availableUsername) => {
-                        profile.username = availableUsername;
-                        user = new User(profile);
-                        user.save((err) => {
-                            if (err) { return req.res.redirect('/login'); }
-                            return done(err, user);
-                        })
-                    });
-                }
-                else { return done(err, user); }
+exports.saveOAuthUserProfile = (req, profile, done) => {
+    User.findOne({
+        provider: profile.provider,
+        providerId: profile.providerId
+    }, function (err, user) {
+        if (err) return done(err);
+        else {
+            if (!user) {
+                var possibleUsername = profile.username
+                    || (profile.email ? profile.email.split('@')[0] : '');
+                console.log('NAME: ' + profile.username);
+                User.findUniqueUsername(possibleUsername, null, (availableUsername) => {
+                    profile.username = availableUsername;
+                    user = new User(profile);
+                    user.save((err) => {
+                        if (err) { return req.res.redirect('/login'); }
+                        return done(err, user);
+                    })
+                });
             }
-        });
-    }
+            else { return done(err, user); }
+        }
+    });
+}
