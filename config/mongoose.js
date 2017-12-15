@@ -1,15 +1,16 @@
 import mongoose from 'mongoose';
 
-module.exports = function(){
-       var config = require('./config');
-       mongoose.set('debug', config.debug);
-       mongoose.Promise = global.Promise;
-       const db = mongoose.connect(config.mongoUri, {
-              useMongoClient: true
-              /* other options */
-       });
+module.exports = function () {
+    var config = require('./config');
+    mongoose.set('debug', config.debug);
+    mongoose.Promise = global.Promise;
+    const db = mongoose.connect(config.mongoUri, {
+        useMongoClient: true
+        /* other options */
+    });
 
-       require('../app/models/user.model');
-       
-       return db;
+    require('../app/models/user.model');
+    require('../app/models/post.model');
+
+    return db;
 } 

@@ -39,3 +39,33 @@ exports.deletePost = (req, res, next) => {
 }
 
 
+exports.search = (req, res, next) => {
+
+    Post.find({ content: { $regex: req.params.search } }, (err, data) => {
+        if (err) {
+            console.log('Failure: ' + err);
+            return next(err);
+        }
+        else {
+            console.log(data);
+            res.json(data);
+        }
+    }).sort({ time: 'desc' });
+}
+
+exports.getMyPost = (req, res, next) => {
+
+    var username = req.user.username;
+    console.log(username);
+    Post.find({ author: username }, (err, data) => {
+        if (err) {
+            console.log('Failure: ' + err);
+            return next(err);
+        }
+        else {
+            console.log(data);
+            res.json(data);
+        }
+    }).sort({ time: 'desc' });
+}
+

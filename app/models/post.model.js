@@ -1,25 +1,18 @@
 import mongoose from 'mongoose';
 var Schema = mongoose.Schema;
 
-var postSchema = new Schema({
+var PostSchema = new Schema({
     title: {
-        type: String,
-        required: true
-    }
-    ,
-    content: {
-        type: String
-    }
-    ,
-    author: {
         type: String,
         required: true,
         trim: true
-    }
-    ,
+    },
+    content: String,
+    author: String,
     time: {
         type: Date,
         default: Date.now
     }
-})
+});
+
 mongoose.model('Post', PostSchema);
