@@ -6,11 +6,11 @@ module.exports = (app) => {
 
     app.get(path + '/getuser', user.getUsers);
 
-    app.route(path + '/getuser/:username')
+    /*app.route(path + '/getuser/:username')
         .get(user.getSelectUser)
         .delete(user.deleteUser);
     app.param('username', user.userByUsername);
-
+    */
 
     app.post(path + '/signup', user.create);
 
