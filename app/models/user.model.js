@@ -13,7 +13,7 @@ var UserSchema = new Schema({
     },
     email: { type: String, unique: true },
     tel: { type: String },
-    status: String,
+    status: { type: String },
     password: {
         type: String,
         //required: 'Password is required',
