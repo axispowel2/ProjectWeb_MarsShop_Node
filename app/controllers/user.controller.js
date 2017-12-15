@@ -18,8 +18,10 @@ exports.deleteUser = (req, res, next) => {
     User.findOneAndRemove({ username: req.user.username }, req.body,
         (err, user) => {
             if (err) {
+                console.log('Failure');
                 return next(err);
             } else {
+                console.log('Success');
                 res.json(user);
             }
         });
